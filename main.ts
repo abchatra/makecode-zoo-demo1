@@ -22,4 +22,20 @@ namespace zoo {
             FillOperation.Replace
         )
     }
+    //% block="build fence of width $width and height $height"
+    //% width.defl=6
+    //% width.min=6 width.max=100
+    //% height.defl=2
+    //% height.min=2 height.max=20
+    export function fence(width: number, height : number) {
+    	builder.teleportTo(player.position())
+    	builder.move(BACK, width/2)
+    	builder.move(RIGHT, width/2)
+    	builder.mark()
+    	for (let index = 0; index < 4; index++) {
+        	builder.move(FORWARD, width)
+        	builder.turn(LEFT_TURN)
+    	}
+    	builder.raiseWall(OAK_FENCE, height)
+   } 
 }
